@@ -35,6 +35,7 @@ class GlApp {
         };
 
         this.scene = scene;                          // current scene to draw (list of models and lights)
+        this.algorithm = 'phong';
         this.algorithm = 'gouraud';                  // current shading algorithm to use for rendering
         
 
@@ -157,12 +158,15 @@ class GlApp {
         // draw all models
         for (let i = 0; i < this.scene.models.length; i ++) {
             if (this.vertex_array[this.scene.models[i].type] == null) continue;
-            
-            
-            //
-            // TODO: properly select shader here
-            //
-            let selected_shader = 'gouraud_color';
+            let selected_shader;
+            if (this.algorithm == "gouraud") {
+                selected_shader = 'gouraud_color';
+                //this.algorithm = "gouraud";
+            } else {
+                selected_shader = 'phong_color'
+                //this.algorithm = 'phong';
+            }
+            //let selected_shader = 'gouraud_color';
             this.gl.useProgram(this.shader[selected_shader].program);
 
             // transform model to proper position, size, and orientation
@@ -230,7 +234,6 @@ class GlApp {
     }
 
     setShadingAlgorithm(algorithm) {
-        // update shading algorithm
         this.algorithm = algorithm;
 
         // render scene
