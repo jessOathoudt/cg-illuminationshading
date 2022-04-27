@@ -161,12 +161,9 @@ class GlApp {
             let selected_shader;
             if (this.algorithm == "gouraud") {
                 selected_shader = 'gouraud_color';
-                //this.algorithm = "gouraud";
             } else {
                 selected_shader = 'phong_color'
-                //this.algorithm = 'phong';
             }
-            //let selected_shader = 'gouraud_color';
             this.gl.useProgram(this.shader[selected_shader].program);
 
             // transform model to proper position, size, and orientation
