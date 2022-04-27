@@ -36,6 +36,7 @@ class GlApp {
 
         this.scene = scene;                          // current scene to draw (list of models and lights)
         this.algorithm = 'gouraud';                  // current shading algorithm to use for rendering
+        
 
 
         // download and compile shaders into GPU program
@@ -53,6 +54,7 @@ class GlApp {
         Promise.all([gouraud_color_vs, gouraud_color_fs, gouraud_texture_vs, gouraud_texture_fs,
                      phong_color_vs, phong_color_fs, phong_texture_vs, phong_texture_fs,
                      emissive_vs, emissive_fs])
+        
         .then((shaders) => this.loadAllShaders(shaders))
         .catch((error) => this.getFileError(error));
     }
@@ -156,10 +158,11 @@ class GlApp {
         for (let i = 0; i < this.scene.models.length; i ++) {
             if (this.vertex_array[this.scene.models[i].type] == null) continue;
             
+            
             //
             // TODO: properly select shader here
             //
-            let selected_shader = 'emissive';
+            let selected_shader = 'gouraud_color';
             this.gl.useProgram(this.shader[selected_shader].program);
 
             // transform model to proper position, size, and orientation
