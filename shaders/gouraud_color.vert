@@ -7,9 +7,9 @@ in vec3 vertex_normal;
 
 uniform vec3 light_ambient;
 uniform vec3 light_position;
-uniform vec3 light_color; //Ip
+uniform vec3 light_color; 
 uniform vec3 camera_position; 
-uniform float material_shininess; // n 
+uniform float material_shininess; 
 uniform mat4 model_matrix; 
 uniform mat4 view_matrix; 
 uniform mat4 projection_matrix; 
@@ -24,7 +24,7 @@ void main() {
     vec3 N = normalize(vertex_normal);
     vec3 V = normalize(camera_position - vertex_position);
     vec3 L = normalize(light_position - vertex_position);
-    vec3 R = (2.0 * dot(N, L) *  N) - L;
+    vec3 R = normalize((2.0 * dot(N, L) *  N) - L);
 
     ambient = light_ambient;
     diffuse = light_color * dot(N, L);

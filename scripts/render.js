@@ -45,7 +45,7 @@ function init() {
                     ambient: glMatrix.vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
                     point_lights: [
                         {
-                            position: vec3.fromValues(1.5, 3.0, -4.5),  // x, y, z
+                            position: vec3.fromValues(-1.5, 3.0, 0),  // x, y, z
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
                         }
                     ]
