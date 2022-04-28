@@ -395,5 +395,6 @@ function createSphereVertexArray(gl, position_attrib, normal_attrib, texcoord_at
 //         - minimum of 16 vertices
 //
 function createCustomVertexArray(gl, position_attrib, normal_attrib, texcoord_attrib) {
-    return null;
 }
+*/
+   
