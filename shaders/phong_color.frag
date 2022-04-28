@@ -18,15 +18,15 @@ out vec4 FragColor;
 void main() {
 
     vec3 N = frag_normal;
-    vec3 V = normalize(camera_position - frag_pos);
-    vec3 L = normalize(light_position - frag_pos);
-    vec3 R = normalize((2.0 * dot(N, L) *  N) - L);
+    vec3 V = camera_position - frag_pos;
+    vec3 L = light_position - frag_pos;
+    vec3 R = (2.0 * dot(N, L) *  N) - L;
 
-    vec3 ambient = light_ambient*material_color;
-    vec3 diffuse = light_color*material_color*dot(N, L);
-    vec3 specular = light_color*material_specular*pow(dot(R, V), material_shininess);
+    vec3 ambient = normalize(light_ambient*material_color);
+    vec3 diffuse = normalize(light_color*material_color*dot(N, L));
+    vec3 specular = normalize(light_color*material_specular*pow(dot(R, V), material_shininess));
 
 
-    vec3 finalColor = ambient + diffuse + specular;
+    vec3 finalColor = ambient + diffuse;
     FragColor = vec4(finalColor, 1.0);
 }

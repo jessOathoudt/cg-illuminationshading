@@ -15,6 +15,6 @@ void main() {
     gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
 
     frag_pos =  vertex_position;
-    frag_normal = normalize(vertex_normal);
+    frag_normal = vertex_normal;
 
 }
