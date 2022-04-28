@@ -30,11 +30,25 @@ function init() {
                         type: 'custom',
                         shader: 'color',
                         material: {
-                            color: vec3.fromValues(0.1, 0.4, 0.9),  // red, green, blue
+                            color: vec3.fromValues(0.9, 0.9, 0.9),  // red, green, blue
                             specular: vec3.fromValues(1.0, 1.0, 1.0),  // red, green, blue
                             shininess: 32
                         },
-                        center: vec3.fromValues(0.0, 1.0, -6.0), // x, y, z
+                        center: vec3.fromValues(2.0, 1.0, -9.0), // x, y, z
+                        size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
+                        rotate_x: 0,
+                        rotate_y: 0,
+                        rotate_z: 0
+                    },
+                    {
+                        type: 'sphere',
+                        shader: 'color',
+                        material: {
+                            color: vec3.fromValues(0.1, 0.4, 0.9),  // red, green, blue
+                            specular: vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
+                            shininess: 32
+                        },
+                        center: vec3.fromValues(-0.5, 1.0, -6.0), // x, y, z
                         size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
                         rotate_x: 0,
                         rotate_y: 0,
@@ -45,7 +59,7 @@ function init() {
                     ambient: glMatrix.vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
                     point_lights: [
                         {
-                            position: vec3.fromValues(-1.5, 3.0, 0),  // x, y, z
+                            position: vec3.fromValues(1.5, 3.0, 3.0),  // x, y, z
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
                         }
                     ]

@@ -24,10 +24,10 @@ void main() {
     vec3 N = normalize(vertex_normal);
     vec3 V = normalize(camera_position - vertex_position);
     vec3 L = normalize(light_position - vertex_position);
-    vec3 R = normalize((2.0 * dot(N, L) *  N) - L);
+    vec3 R = normalize(reflect(L, N));
 
     ambient = light_ambient;
-    diffuse = light_color * dot(N, L);
-    specular = light_color * pow(dot(R, V), material_shininess);
+    diffuse = light_color * max(0.0, dot(N, L));
+    specular = light_color * pow(max(0.0, dot(R, V)), material_shininess);
 
 }
