@@ -26,7 +26,7 @@ function init() {
                         rotate_y: 0,
                         rotate_z: 0
                     },
-                    /*{
+                    {
                         type: 'custom',
                         shader: 'color',
                         material: {
@@ -39,7 +39,7 @@ function init() {
                         rotate_x: 0,
                         rotate_y: 0,
                         rotate_z: 0
-                    },
+                    },/*,
                     {
                         type: 'sphere',
                         shader: 'color',
