@@ -131,8 +131,15 @@ class GlApp {
 
         //
         // TODO: set texture parameters and upload a temporary 1px white RGBA array [255,255,255,255]
-        // 
-
+        //
+        this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.REPEAT);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.REPEAT);
+        let pixels = [255,255,255,255];
+        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.RGBA, 2, 2, 0, this.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(pixels));
+        this.gl.bindTexture(this.gl.TEXTURE_2D, null);
         // download the actual image
         let image = new Image();
         image.crossOrigin = 'anonymous';
@@ -148,6 +155,7 @@ class GlApp {
     updateTexture(texture, image_element) {
         //
         // TODO: update image for specified texture
+        this.gl.activeTexture(this.gl.TEXTURE0);
         //
     }
 
@@ -161,9 +169,12 @@ class GlApp {
             let selected_shader;
             if (this.algorithm == "gouraud") {
                 selected_shader = 'gouraud_color';
+                //this.algorithm = "gouraud";
             } else {
                 selected_shader = 'phong_color'
+                //this.algorithm = 'phong';
             }
+            //let selected_shader = 'gouraud_color';
             this.gl.useProgram(this.shader[selected_shader].program);
 
             // transform model to proper position, size, and orientation
@@ -188,6 +199,8 @@ class GlApp {
             //
             // TODO: bind proper texture and set uniform (if shader is a textured one)
             //
+            this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
+            this.gl.uniform1i(this.shader[selected_shader].uniforms.image, 0);
 
             this.gl.bindVertexArray(this.vertex_array[this.scene.models[i].type]);
             this.gl.drawElements(this.gl.TRIANGLES, this.vertex_array[this.scene.models[i].type].face_index_count, this.gl.UNSIGNED_SHORT, 0);

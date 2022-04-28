@@ -17,6 +17,7 @@ out vec4 FragColor;
 
 void main() {
 
+
     vec3 N = frag_normal;
     vec3 V = normalize(camera_position - frag_pos);
     vec3 L = normalize(light_position - frag_pos);
@@ -26,7 +27,11 @@ void main() {
     vec3 diffuse = light_color*material_color*dot(N, L);
     vec3 specular = light_color*material_specular*pow(dot(R, V), material_shininess);
 
+<<<<<<< HEAD
 
     vec3 finalColor = ambient + diffuse + specular;
+=======
+    vec3 finalColor = ambient + diffuse;
+>>>>>>> e5d565f36c9339b0e1761f80618678de21cadd69
     FragColor = vec4(finalColor, 1.0);
 }

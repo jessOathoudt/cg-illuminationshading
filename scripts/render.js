@@ -26,7 +26,7 @@ function init() {
                         rotate_y: 0,
                         rotate_z: 0
                     },
-                    {
+                    /*{
                         type: 'custom',
                         shader: 'color',
                         material: {
@@ -49,6 +49,20 @@ function init() {
                             shininess: 32
                         },
                         center: vec3.fromValues(-0.5, 1.0, -6.0), // x, y, z
+                        size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
+                        rotate_x: 0,
+                        rotate_y: 0,
+                        rotate_z: 0
+                    },*/
+                    {
+                        type: 'sphere',
+                        shader: 'color',
+                        material: {
+                        color: vec3.fromValues(1.0, 1.0, 0.9),  // red, green, blue
+                        specular: vec3.fromValues(1.0, 1.0, 1.0),  // red, green, blue
+                        shininess: 32
+                        },
+                        center: vec3.fromValues(1.0, 1.0, -6.0), // x, y, z
                         size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
                         rotate_x: 0,
                         rotate_y: 0,
