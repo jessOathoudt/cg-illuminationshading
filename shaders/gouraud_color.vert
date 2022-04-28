@@ -24,7 +24,7 @@ void main() {
     vec3 N = normalize(vertex_normal);
     vec3 V = normalize(camera_position - vertex_position);
     vec3 L = normalize(light_position - vertex_position);
-    vec3 R = normalize(reflect(L, N));
+    vec3 R = normalize(-(reflect(L, N)));
 
     ambient = light_ambient;
     diffuse = light_color * max(0.0, dot(N, L));
