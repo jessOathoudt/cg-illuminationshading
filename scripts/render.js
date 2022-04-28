@@ -30,8 +30,8 @@ function init() {
                         type: 'custom',
                         shader: 'color',
                         material: {
-                            color: vec3.fromValues(0.9, 0.9, 0.9),  // red, green, blue
-                            specular: vec3.fromValues(1.0, 1.0, 1.0),  // red, green, blue
+                            color: vec3.fromValues(.7, .1, .1),  // red, green, blue
+                            specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                             shininess: 32
                         },
                         center: vec3.fromValues(2.0, 1.0, -9.0), // x, y, z
@@ -39,27 +39,13 @@ function init() {
                         rotate_x: 0,
                         rotate_y: 0,
                         rotate_z: 0
-                    },/*,
+                    },
                     {
                         type: 'sphere',
                         shader: 'color',
                         material: {
-                            color: vec3.fromValues(0.1, 0.4, 0.9),  // red, green, blue
-                            specular: vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
-                            shininess: 32
-                        },
-                        center: vec3.fromValues(-0.5, 1.0, -6.0), // x, y, z
-                        size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
-                        rotate_x: 0,
-                        rotate_y: 0,
-                        rotate_z: 0
-                    },*/
-                    {
-                        type: 'sphere',
-                        shader: 'color',
-                        material: {
-                        color: vec3.fromValues(1.0, 1.0, 0.9),  // red, green, blue
-                        specular: vec3.fromValues(1.0, 1.0, 1.0),  // red, green, blue
+                        color: vec3.fromValues(.7, .1, 0.1),  // red, green, blue
+                        specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                         shininess: 32
                         },
                         center: vec3.fromValues(-1.0, 1.0, -6.0), // x, y, z
@@ -75,9 +61,50 @@ function init() {
                         {
                             position: vec3.fromValues(1.5, 3.0, 3.0),  // x, y, z
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
+                        },
+                        {
+                            "position": [-2.0, 1.5, -2.5],
+                            "color": [.8, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 2.5, -2.5],
+                            "color": [.7, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 3.5, -2.5],
+                            "color": [.6, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 4.5, -2.5],
+                            "color": [.5, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 5.5, -2.5],
+                            "color": [.4, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 6.5, -2.5],
+                            "color": [.3, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 7.5, -2.5],
+                            "color": [.2, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 9.5, -2.5],
+                            "color": [.1, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 9.5, -2.5],
+                            "color": [0, 1.0, 1.0]
+                        },
+                        {
+                            "position": [-2.0, 10.5, -2.5],
+                            "color": [1.0, 1.0, 1.0]
                         }
                     ]
                 }
+                
             }
         },
         methods: {
@@ -96,6 +123,7 @@ function init() {
             },
 
             updateLightPosition(index) {
+
                 let light_posx = document.getElementById('light' + index + '_posx');
                 let light_posy = document.getElementById('light' + index + '_posy');
                 let light_posz = document.getElementById('light' + index + '_posz');

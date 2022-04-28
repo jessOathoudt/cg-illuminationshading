@@ -15,7 +15,10 @@ out vec4 FragColor;
 
 void main() {
 
+    //how to implement final color into texture
+    
 
-    //image = 
+    vec3 finalColor = (ambient * material_color) + (diffuse * material_color) + (specular * material_specular);
+    
     FragColor = texture(image, frag_texcoord);
 }
