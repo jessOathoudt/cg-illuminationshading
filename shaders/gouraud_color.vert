@@ -19,10 +19,8 @@ out vec3 diffuse;
 out vec3 specular;
 
 void main() {
-    
-    
     for(int i =0; i<=10; i++){
-         gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
+        gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
         vec3 N = normalize(vertex_normal);
         vec3 V = normalize(camera_position - vertex_position);
         vec3 L = normalize(light_position[i] - vertex_position);
@@ -31,5 +29,4 @@ void main() {
         diffuse = light_color * max(0.0, dot(N, L));
         specular = light_color * pow(max(0.0, dot(R, V)), material_shininess);
     }
-
 }

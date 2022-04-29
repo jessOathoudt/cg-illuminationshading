@@ -42,7 +42,7 @@ function init() {
                     },
                     {
                         type: 'sphere',
-                        shader: 'color',
+                        shader: 'texture',
                         material: {
                         color: vec3.fromValues(.7, .1, 0.1),  // red, green, blue
                         specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue

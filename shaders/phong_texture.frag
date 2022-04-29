@@ -23,13 +23,14 @@ void main() {
     vec3 V = normalize(camera_position - frag_pos);
     vec3 L = normalize(light_position - frag_pos);
     vec3 R = normalize(-reflect(L, N));
+    vec3 matColor =  texture(image, frag_texcoord).rgb * material_color;
 
-    vec3 ambient = light_ambient*material_color;
-    vec3 diffuse = light_color*material_color* max(0.0, dot(N, L));
+    vec3 ambient = light_ambient*matColor;
+    vec3 diffuse = light_color*matColor* max(0.0, dot(N, L));
     vec3 specular = light_color*material_specular*pow(max(0.0, dot(R, V)), material_shininess);
 
 
     vec3 finalColor = ambient + diffuse + specular;
 
-    FragColor = vec4(finalColor, 1.0) * texture(image, frag_texcoord);
+    FragColor = vec4(finalColor, 1.0);
 }
