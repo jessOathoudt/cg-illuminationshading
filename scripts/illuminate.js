@@ -132,12 +132,13 @@ class GlApp {
         //
         // TODO: set texture parameters and upload a temporary 1px white RGBA array [255,255,255,255]
         //
-        this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
-        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
+        this.gl.bindTexture(gl.TEXTURE_2D, texture);
+        this.gl.texParameteri(gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.REPEAT);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.REPEAT);
-        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.RGBA, 2, 2, 0, this.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array([255,255,255,255]));
+        let pixels = [255,255,255,255];
+        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.RGBA, 2, 2, 0, this.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(pixels));
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
         // download the actual image
         let image = new Image();
@@ -154,9 +155,7 @@ class GlApp {
     updateTexture(texture, image_element) {
         //
         // TODO: update image for specified texture
-        this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
-        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, this.gl.UNSIGNED_BYTE, image_element);
-        this.gl.generateMipmap(this.gl.TEXTURE_2D);
+        this.gl.activeTexture(this.gl.TEXTURE0);
         //
     }
 
@@ -195,14 +194,16 @@ class GlApp {
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.light_color, this.scene.light.point_lights[0].color);
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.material_specular, this.scene.models[i].material.specular);
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.camera_position, this.scene.camera.position);
+            this.gl.uniform1f(this.shader[selected_shader].uniforms.material_shininess, this.scene.models[i].material.shininess);
+
 
             
             //
             // TODO: bind proper texture and set uniform (if shader is a textured one)
             //
-            this.gl.activeTexture(this.gl.TEXTURE0);
             this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture);
-            this.gl.uniform1i(this.shader[selected_shader].uniforms.image_elem, 0);
+            this.gl.uniform1i(this.shader[selected_shader].uniforms.image, 0);
+
             this.gl.bindVertexArray(this.vertex_array[this.scene.models[i].type]);
             this.gl.drawElements(this.gl.TRIANGLES, this.vertex_array[this.scene.models[i].type].face_index_count, this.gl.UNSIGNED_SHORT, 0);
             this.gl.bindVertexArray(null);

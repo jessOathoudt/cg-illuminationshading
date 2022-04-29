@@ -9,13 +9,16 @@ in vec2 frag_texcoord;
 
 uniform vec3 material_color;    // Ka and Kd
 uniform vec3 material_specular; // Ks
-uniform sampler2D image_elem;        // use in conjunction with Ka and Kd
+uniform sampler2D image;        // use in conjunction with Ka and Kd
 
 out vec4 FragColor;
 
 void main() {
 
+    //how to implement final color into texture
+    
 
-    //image = 
-    FragColor = texture(image_elem, frag_texcoord);
+    vec3 finalColor = (ambient * material_color) + (diffuse * material_color) + (specular * material_specular);
+    
+    FragColor = texture(image, frag_texcoord);
 }

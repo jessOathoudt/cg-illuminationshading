@@ -6,7 +6,7 @@ in vec3 vertex_position;
 in vec3 vertex_normal; 
 
 uniform vec3 light_ambient;
-uniform vec3 light_position;
+uniform vec3 light_position [10];
 uniform vec3 light_color; 
 uniform vec3 camera_position; 
 uniform float material_shininess; 
@@ -19,16 +19,17 @@ out vec3 diffuse;
 out vec3 specular;
 
 void main() {
-    gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
-    //for(int i=0; i<=10;i++){
+    
+    
+    for(int i =0; i<=10; i++){
+         gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
         vec3 N = normalize(vertex_normal);
         vec3 V = normalize(camera_position - vertex_position);
-        vec3 L = normalize(light_position - vertex_position);
+        vec3 L = normalize(light_position[i] - vertex_position);
         vec3 R = normalize(-(reflect(L, N)));
-
         ambient = light_ambient;
         diffuse = light_color * max(0.0, dot(N, L));
         specular = light_color * pow(max(0.0, dot(R, V)), material_shininess);
-   // }
+    }
 
 }
