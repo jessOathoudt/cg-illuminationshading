@@ -14,18 +14,22 @@ function init() {
                 models: [
                     {
                         type: 'plane',
-                        shader: 'color',
+                        shader: 'texture',
                         material: {
                             color: vec3.fromValues(0.7, 0.1, 0.1),  // red, green, blue
                             specular: vec3.fromValues(0.0, 0.0, 0.0),  // red, green, blue
                             shininess: 1
+                        },
+                        texture: {
+                            "url": "images/Checkered.jpg",
+                            "scale": [4, 4]
                         },
                         center: vec3.fromValues(0.0, 0.0, -8.0),  // x, y, z
                         size: vec3.fromValues(8.0, 1.0, 8.0),  // width, 1.0, depth
                         rotate_x: 0,
                         rotate_y: 0,
                         rotate_z: 0
-                    },
+                    }/*,
                     {
                         type: 'custom',
                         shader: 'color',
@@ -39,7 +43,7 @@ function init() {
                         rotate_x: 0,
                         rotate_y: 0,
                         rotate_z: 0
-                    },
+                    },*/,
                     {
                         type: 'sphere',
                         shader: 'color',
@@ -63,45 +67,41 @@ function init() {
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
                         },
                         {
-                            "position": [-2.0, 1.5, -2.5],
-                            "color": [.8, 1.0, 1.0]
+                            position: [-1.5, 3.5, -2.5],
+                            color: [.8, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 2.5, -2.5],
+                            "position": [-.9, 3.5, -2.5],
                             "color": [.7, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 3.5, -2.5],
+                            "position": [-.5, 3.5, -2.5],
                             "color": [.6, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 4.5, -2.5],
+                            "position": [-2.1, 3.5, -2.5],
                             "color": [.5, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 5.5, -2.5],
+                            "position": [-2.4, 3.5, -2.5],
                             "color": [.4, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 6.5, -2.5],
+                            "position": [-2.5, 3.5, -2.5],
                             "color": [.3, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 7.5, -2.5],
+                            "position": [-1.0, 3.5, -2.5],
                             "color": [.2, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 9.5, -2.5],
-                            "color": [.1, 1.0, 1.0]
+                            "position": [-2.0, 3.5, -2.5],
+                            "color": [.9, 1.0, 1.0]
                         },
                         {
-                            "position": [-2.0, 9.5, -2.5],
-                            "color": [0, 1.0, 1.0]
-                        },
-                        {
-                            "position": [-2.0, 10.5, -2.5],
+                            "position": [-3.0, 3.5, -2.5],
                             "color": [1.0, 1.0, 1.0]
-                        }
+                        },
                     ]
                 }
                 
@@ -109,7 +109,7 @@ function init() {
         },
         methods: {
             selectShadingAlgorithm() {
-                var shading_alg = document.getElementById('shading_alg');
+                var shading_alg = document.getElementById('texture');
                 glapp.setShadingAlgorithm(shading_alg.value);
             },
 
