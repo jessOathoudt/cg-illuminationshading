@@ -17,5 +17,6 @@ void main() {
 
 
     //image = 
-    FragColor = texture(image_elem, frag_texcoord);
+    vec3 finalColor=ambient+diffuse+specular;
+    FragColor = texture(image_elem, frag_texcoord) * vec4(finalColor, 1.0);
 }

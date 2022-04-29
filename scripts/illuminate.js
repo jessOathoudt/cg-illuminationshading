@@ -137,7 +137,7 @@ class GlApp {
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.REPEAT);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.REPEAT);
-        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.RGBA, 2, 2, 0, this.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array([255,255,255,255]));
+        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, 2, 2, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array([255,255,255,255]));
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
         // download the actual image
         let image = new Image();

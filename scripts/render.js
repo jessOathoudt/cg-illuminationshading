@@ -14,7 +14,7 @@ function init() {
                 models: [
                     {
                         type: 'plane',
-                        shader: 'texture',
+                        shader: 'color',
                         material: {
                             color: vec3.fromValues(0.7, 0.1, 0.1),  // red, green, blue
                             specular: vec3.fromValues(0.0, 0.0, 0.0),  // red, green, blue
@@ -45,12 +45,16 @@ function init() {
                         rotate_z: 0
                     },*/,
                     {
-                        type: 'sphere',
-                        shader: 'color',
+                        type: 'cube',
+                        shader: 'texture',
                         material: {
                         color: vec3.fromValues(.7, .1, 0.1),  // red, green, blue
                         specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                         shininess: 32
+                        },
+                        texture: {
+                            "url": "images/Checkered.jpg",
+                            "scale": [4, 4]
                         },
                         center: vec3.fromValues(-1.0, 1.0, -6.0), // x, y, z
                         size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
