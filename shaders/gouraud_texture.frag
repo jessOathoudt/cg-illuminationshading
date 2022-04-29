@@ -15,7 +15,6 @@ out vec4 FragColor;
 
 void main() {
 
-
     //image = 
     FragColor = texture(image, frag_texcoord);
 }
