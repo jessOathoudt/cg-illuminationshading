@@ -20,5 +20,5 @@ void main() {
     gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
     frag_texcoord = vertex_texcoord * texture_scale;
     frag_normal = normalize(vertex_normal);
-    frag_pos = vertex_position;
+    frag_pos = vertex_position; 
 }
