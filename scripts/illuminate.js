@@ -168,10 +168,10 @@ class GlApp {
             if (this.vertex_array[this.scene.models[i].type] == null) continue;
             let selected_shader;
             if (this.algorithm == "gouraud") {
-                selected_shader = 'gouraud_color';
+                selected_shader = 'gouraud_texture';
                 //this.algorithm = "gouraud";
             } else {
-                selected_shader = 'phong_color'
+                selected_shader = 'phong_texture'
                 //this.algorithm = 'phong';
             }
             //let selected_shader = 'gouraud_color';
