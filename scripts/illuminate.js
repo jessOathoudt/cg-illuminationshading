@@ -132,8 +132,8 @@ class GlApp {
         //
         // TODO: set texture parameters and upload a temporary 1px white RGBA array [255,255,255,255]
         //
-        this.gl.bindTexture(gl.TEXTURE_2D, texture);
-        this.gl.texParameteri(gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
+        this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
+        this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.REPEAT);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.REPEAT);
@@ -153,6 +153,7 @@ class GlApp {
     }
 
     updateTexture(texture, image_element) {
+        this.gl.bindTexture(this.gl.TEXTURE_2D, null);
         //
         // TODO: update image for specified texture
         this.gl.activeTexture(this.gl.TEXTURE0);
@@ -195,6 +196,10 @@ class GlApp {
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.material_specular, this.scene.models[i].material.specular);
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.camera_position, this.scene.camera.position);
             this.gl.uniform1f(this.shader[selected_shader].uniforms.material_shininess, this.scene.models[i].material.shininess);
+            if(scene.models[i].shader === 'texture') {
+                this.gl.uniform2fv(this.shader[selected_shader].uniforms.texture_scale, this.scene.models[i].texture.scale);
+            
+            }
 
 
             

@@ -42,7 +42,7 @@ function init() {
                     },
                     {
                         type: 'sphere',
-                        shader: 'color',
+                        shader: 'texture',
                         material: {
                         color: vec3.fromValues(.7, .1, 0.1),  // red, green, blue
                         specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
@@ -52,7 +52,11 @@ function init() {
                         size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
                         rotate_x: 0,
                         rotate_y: 0,
-                        rotate_z: 0
+                        rotate_z: 0,
+                        texture: {
+                            url: "images/World_Map.jpg",
+                            scale: vec2.fromValues(1.0, 1.0)
+                        }
                     },
                     {
                         type: 'cube',
