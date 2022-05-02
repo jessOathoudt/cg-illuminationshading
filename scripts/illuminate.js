@@ -138,7 +138,7 @@ class GlApp {
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.REPEAT);
         this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.REPEAT);
         let pixels = [255,255,255,255];
-        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.RGBA, 2, 2, 0, this.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(pixels));
+        this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, 1, 1, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(pixels));
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
         // download the actual image
         let image = new Image();
@@ -153,10 +153,13 @@ class GlApp {
     }
 
     updateTexture(texture, image_element) {
+        this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
+       
+       // this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, 1, 1, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(image_element));
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
         //
         // TODO: update image for specified texture
-        this.gl.activeTexture(this.gl.TEXTURE0);
+        //this.gl.activeTexture(this.gl.TEXTURE0);
         //
     }
 
