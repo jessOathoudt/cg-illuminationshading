@@ -5,6 +5,7 @@ precision highp float;
 in vec3 vertex_position; 
 in vec3 vertex_normal; 
 
+
 uniform vec3 light_ambient;
 uniform vec3 light_position;
 uniform vec3 light_color; 
@@ -21,7 +22,7 @@ out vec3 specular;
 void main() {
     
     
-    //for(int i =0; i<=10; i++){
+    //for(int i = )
          gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
         vec3 N = normalize(vertex_normal);
         vec3 V = normalize(camera_position - vertex_position);
