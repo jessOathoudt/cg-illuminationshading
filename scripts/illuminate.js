@@ -155,7 +155,11 @@ class GlApp {
     updateTexture(texture, image_element) {
         this.gl.bindTexture(this.gl.TEXTURE_2D, texture);
         this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, this.gl.UNSIGNED_BYTE, image_element);
+
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
+       
+        // this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, 1, 1, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(image_element));
+        //this.gl.bindTexture(this.gl.TEXTURE_2D, image_element);
         //
         // TODO: update image for specified texture
         //this.gl.activeTexture(this.gl.TEXTURE0);
@@ -203,8 +207,6 @@ class GlApp {
                 this.gl.activeTexture(this.gl.TEXTURE0);
                 this.gl.bindTexture(this.gl.TEXTURE_2D, this.scene.models[i].texture.id);
                 this.gl.uniform1i(this.shader[selected_shader].uniforms.image, 0);
-
-            }
 
 
             
