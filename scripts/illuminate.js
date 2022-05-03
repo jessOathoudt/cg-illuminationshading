@@ -207,7 +207,7 @@ class GlApp {
                 this.gl.activeTexture(this.gl.TEXTURE0);
                 this.gl.bindTexture(this.gl.TEXTURE_2D, this.scene.models[i].texture.id);
                 this.gl.uniform1i(this.shader[selected_shader].uniforms.image, 0);
-
+            }
 
             
             //
@@ -228,7 +228,6 @@ class GlApp {
             glMatrix.mat4.identity(this.model_matrix);
             glMatrix.mat4.translate(this.model_matrix, this.model_matrix, this.scene.light.point_lights[i].position);
             glMatrix.mat4.scale(this.model_matrix, this.model_matrix, glMatrix.vec3.fromValues(0.1, 0.1, 0.1));
-
 
             this.gl.uniform3fv(this.shader['emissive'].uniforms.material_color, this.scene.light.point_lights[i].color);
             this.gl.uniformMatrix4fv(this.shader['emissive'].uniforms.projection_matrix, false, this.projection_matrix);
