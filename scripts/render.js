@@ -32,11 +32,15 @@ function init() {
                     },
                     {
                         type: 'custom',
-                        shader: 'color',
+                        shader: 'texture',
                         material: {
                             color: vec3.fromValues(.7, .1, .1),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                             shininess: 70
+                        },
+                        texture: {
+                            url: "images/World_Map.jpg",
+                            scale: vec2.fromValues(1.0, 1.0)
                         },
                         center: vec3.fromValues(2.0, 1.0, -9.0), // x, y, z
                         size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
@@ -64,11 +68,15 @@ function init() {
                     },
                     {
                         type: 'cube',
-                        shader: 'color',
+                        shader: 'texture',
                         material: {
                             color: vec3.fromValues(.7, .1, .1),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                             shininess: 70
+                        },
+                        texture: {
+                            url: "images/World_Map.jpg",
+                            scale: vec2.fromValues(1.0, 1.0)
                         },
                         center: vec3.fromValues(-2.0, 1.0, -9.0), // x, y, z
                         size: vec3.fromValues(1.0, 1.0, 1.0),  // width, height, depth
