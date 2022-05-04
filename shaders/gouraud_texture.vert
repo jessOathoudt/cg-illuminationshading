@@ -25,11 +25,11 @@ void main() {
     diffuse = vec3(0.0, 0.0, 0.0);
     specular = vec3(0.0, 0.0, 0.0);
     gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
-    frag_texcoord = vertex_texcoord * texture_scale;
+    frag_texcoord = vertex_texcoord * texture_scale * vec2(1,-1);
     vec3 N = normalize(vertex_normal);
     vec3 V = normalize(camera_position - vertex_position);
 
-    for (int i = 0; i < 1 ; i++) {
+    for (int i = 0; i < 3 ; i++) {
         vec3 L = normalize(light_position[i] - vertex_position);
         vec3 R = normalize(-(reflect(L, N)));
 

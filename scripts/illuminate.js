@@ -172,12 +172,12 @@ class GlApp {
         let light_list_color = new Float32Array(30);
         let light_list_position = new Float32Array(30); 
         for (let i = 0; i < this.scene.light.point_lights.length; i ++) {
-            light_list_color[3*i] = this.scene.light.point_lights[i].color.x;
-            light_list_color[3*i+1] = this.scene.light.point_lights[i].color.y;
-            light_list_color[3*i+2] = this.scene.light.point_lights[i].color.z;
-            light_list_position[3*i] = this.scene.light.point_lights[i].position.x;
-            light_list_position[3*i] = this.scene.light.point_lights[i].position.y;
-            light_list_position[3*i] = this.scene.light.point_lights[i].position.z;
+            light_list_color[3*i] = this.scene.light.point_lights[i].color[0];
+            light_list_color[3*i+1] = this.scene.light.point_lights[i].color[1];
+            light_list_color[3*i+2] = this.scene.light.point_lights[i].color[2];
+            light_list_position[3*i] = this.scene.light.point_lights[i].position[0];
+            light_list_position[3*i+1] = this.scene.light.point_lights[i].position[1];
+            light_list_position[3*i+2] = this.scene.light.point_lights[i].position[2];
                
         }
         console.log(light_list_color);
