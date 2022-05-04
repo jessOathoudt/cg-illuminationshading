@@ -29,7 +29,7 @@ void main() {
     vec3 N = normalize(vertex_normal);
     vec3 V = normalize(camera_position - vertex_position);
 
-    for (int i = 0; i < 1 ; i++) {
+    for (int i = 0; i < 10 ; i++) {
         vec3 L = normalize(light_position[i] - vertex_position);
         vec3 R = normalize(-(reflect(L, N)));
 
