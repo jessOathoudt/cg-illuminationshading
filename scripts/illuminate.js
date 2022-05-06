@@ -158,6 +158,7 @@ class GlApp {
         this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, this.gl.RGBA, this.gl.UNSIGNED_BYTE, image_element);
 
         this.gl.bindTexture(this.gl.TEXTURE_2D, null);
+        this.render();
        
         // this.gl.texImage2D(this.gl.TEXTURE_2D, 0, this.gl.RGBA, 1, 1, 0, this.gl.RGBA, this.gl.UNSIGNED_BYTE, new Uint8Array(image_element));
         //this.gl.bindTexture(this.gl.TEXTURE_2D, image_element);
