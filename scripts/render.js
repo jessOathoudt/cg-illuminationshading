@@ -36,7 +36,7 @@ function init() {
                         material: {
                             color: vec3.fromValues(.9, .9, .9),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                            shininess: 32
+                            shininess: 12
                         },
                         texture: {
                             url: "images/butterfly.jpg",
@@ -72,7 +72,7 @@ function init() {
                         material: {
                             color: vec3.fromValues(.7, .4, .4),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                            shininess: 70
+                            shininess: 20
                         },
                         texture: {
                             url: "images/World_Map.jpg",
