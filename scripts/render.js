@@ -34,7 +34,7 @@ function init() {
                         type: 'custom',
                         shader: 'texture',
                         material: {
-                            color: vec3.fromValues(.2, .2, .6),  // red, green, blue
+                            color: vec3.fromValues(.9, .9, .9),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                             shininess: 70
                         },
@@ -52,7 +52,7 @@ function init() {
                         type: 'sphere',
                         shader: 'texture',
                         material: {
-                        color: vec3.fromValues(.2, .2, 0.6),  // red, green, blue
+                        color: vec3.fromValues(.5, .5, 0.5),  // red, green, blue
                         specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                         shininess: 32
                         },
