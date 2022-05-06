@@ -36,10 +36,10 @@ function init() {
                         material: {
                             color: vec3.fromValues(.9, .9, .9),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                            shininess: 70
+                            shininess: 32
                         },
                         texture: {
-                            url: "images/World_Map.jpg",
+                            url: "images/butterfly.jpg",
                             scale: vec2.fromValues(1.0, 1.0)
                         },
                         center: vec3.fromValues(2.0, 1.0, -9.0), // x, y, z
