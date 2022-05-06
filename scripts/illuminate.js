@@ -38,6 +38,7 @@ class GlApp {
         this.algorithm = 'phong';
         this.algorithm = 'gouraud';                  // current shading algorithm to use for rendering
         
+        
 
         // download and compile shaders into GPU program
         let gouraud_color_vs = this.getFile('shaders/gouraud_color.vert');
@@ -148,6 +149,7 @@ class GlApp {
         }, false);
         image.src = image_url;
 
+
         return texture;
     }
 
@@ -172,21 +174,12 @@ class GlApp {
         let light_list_color = new Float32Array(30);
         let light_list_position = new Float32Array(30); 
         for (let i = 0; i < this.scene.light.point_lights.length; i ++) {
-<<<<<<< HEAD
-            light_list_color[3*i] = this.scene.light.point_lights[i].color.x;
-            light_list_color[3*i+1] = this.scene.light.point_lights[i].color.y;
-            light_list_color[3*i+2] = this.scene.light.point_lights[i].color.z;
-            light_list_position[3*i] = this.scene.light.point_lights[i].position.x;
-            light_list_position[3*i+1] = this.scene.light.point_lights[i].position.y;
-            light_list_position[3*i+2] = this.scene.light.point_lights[i].position.z;
-=======
             light_list_color[3*i] = this.scene.light.point_lights[i].color[0];
             light_list_color[3*i+1] = this.scene.light.point_lights[i].color[1];
             light_list_color[3*i+2] = this.scene.light.point_lights[i].color[2];
             light_list_position[3*i] = this.scene.light.point_lights[i].position[0];
             light_list_position[3*i+1] = this.scene.light.point_lights[i].position[1];
             light_list_position[3*i+2] = this.scene.light.point_lights[i].position[2];
->>>>>>> 824798c7df81ed939d820b4aed07326054f620bd
                
         }
         console.log(light_list_color);
@@ -197,10 +190,22 @@ class GlApp {
             if (this.vertex_array[this.scene.models[i].type] == null) continue;
             let selected_shader;
             if (this.algorithm == "gouraud") {
-                selected_shader = 'gouraud_texture';
+                if (this.scene.models[i].shader == "texture") {
+                    selected_shader = 'gouraud_texture';
+                } else {
+                    selected_shader = 'gouraud_color';
+                    this.algorithm = "gouraud";
+                }
                 //this.algorithm = "gouraud";
             } else {
-                selected_shader = 'phong_texture'
+                if (this.scene.models[i].shader == "texture") {
+                    
+                    selected_shader = 'phong_texture';
+                } else {
+                    selected_shader = 'phong_color';
+                    this.algorithm = "phong";
+                }
+                
                 //this.algorithm = 'phong';
             }
             //let selected_shader = 'gouraud_color';
@@ -219,8 +224,8 @@ class GlApp {
             this.gl.uniformMatrix4fv(this.shader[selected_shader].uniforms.view_matrix, false, this.view_matrix);
             this.gl.uniformMatrix4fv(this.shader[selected_shader].uniforms.model_matrix, false, this.model_matrix);
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.light_ambient, this.scene.light.ambient);
-            this.gl.uniform3fv(this.shader[selected_shader].uniforms.light_position, this.scene.light.point_lights[0].position);
-            this.gl.uniform3fv(this.shader[selected_shader].uniforms.light_color, this.scene.light.point_lights[0].color);
+            this.gl.uniform3fv(this.shader[selected_shader].uniforms['light_position[0]'], light_list_position);
+            this.gl.uniform3fv(this.shader[selected_shader].uniforms['light_color[0]'], light_list_color);
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.material_specular, this.scene.models[i].material.specular);
             this.gl.uniform3fv(this.shader[selected_shader].uniforms.camera_position, this.scene.camera.position);
             this.gl.uniform1f(this.shader[selected_shader].uniforms.material_shininess, this.scene.models[i].material.shininess);
@@ -231,7 +236,6 @@ class GlApp {
                 this.gl.uniform1i(this.shader[selected_shader].uniforms.image, 0);
             }
 
-            
             //
             // TODO: bind proper texture and set uniform (if shader is a textured one)
             //

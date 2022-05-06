@@ -14,7 +14,7 @@ function init() {
                 models: [
                     {
                         type: 'plane',
-                        shader: 'texture',
+                        shader: 'color',
                         material: {
                             color: vec3.fromValues(0.7, 0.1, 0.1),  // red, green, blue
                             specular: vec3.fromValues(0.0, 0.0, 0.0),  // red, green, blue
@@ -86,7 +86,7 @@ function init() {
                     }
                 ],
                 light: {
-                    ambient: glMatrix.vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
+                    ambient: glMatrix.vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
                     point_lights: [
                         {
                             position: vec3.fromValues(1.5, 3.0, 3.0),  // x, y, z
