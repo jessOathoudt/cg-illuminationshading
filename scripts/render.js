@@ -36,7 +36,7 @@ function init() {
                         material: {
                             color: vec3.fromValues(.9, .9, .9),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                            shininess: 12
+                            shininess: 32
                         },
                         texture: {
                             url: "images/butterfly.jpg",
@@ -54,7 +54,7 @@ function init() {
                         material: {
                         color: vec3.fromValues(.5, .5, 0.5),  // red, green, blue
                         specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                        shininess: 32
+                        shininess: .4
                         },
                         center: vec3.fromValues(-1.0, 1.0, -6.0), // x, y, z
                         size: vec3.fromValues(2.0, 2.0, 2.0),  // width, height, depth
@@ -72,7 +72,7 @@ function init() {
                         material: {
                             color: vec3.fromValues(.7, .4, .4),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                            shininess: 20
+                            shininess: .4
                         },
                         texture: {
                             url: "images/World_Map.jpg",
@@ -93,7 +93,7 @@ function init() {
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
                         },
                         {
-                            position: vec3.fromValues(-2.0, 1.5, -2.5),
+                            position: vec3.fromValues(2.0, 2.5, -2.5),
                             color: vec3.fromValues(.8, 1.0, 1.0)
                         },
                         {

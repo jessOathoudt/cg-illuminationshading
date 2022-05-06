@@ -32,6 +32,6 @@ void main() {
         specular += light_color[i]*material_specular*pow(max(0.0, dot(R, V)), material_shininess);
     }
 
-    vec3 finalColor = ambient + diffuse + specular;
+    vec3 finalColor = min(ambient + diffuse + specular, 1.0);
     FragColor = vec4(finalColor, 1.0);
 }
