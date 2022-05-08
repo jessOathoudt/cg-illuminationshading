@@ -195,7 +195,7 @@ class GlApp {
                     selected_shader = 'gouraud_texture';
                 } else {
                     selected_shader = 'gouraud_color';
-                    this.algorithm = "gouraud";
+                    //this.algorithm = "gouraud";
                 }
                 //this.algorithm = "gouraud";
             } else {
@@ -204,7 +204,7 @@ class GlApp {
                     selected_shader = 'phong_texture';
                 } else {
                     selected_shader = 'phong_color';
-                    this.algorithm = "phong";
+                    //this.algorithm = "phong";
                 }
                 
                 //this.algorithm = 'phong';

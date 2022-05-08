@@ -32,14 +32,14 @@ function init() {
                     },
                     {
                         type: 'custom',
-                        shader: 'texture',
+                        shader: 'color',
                         material: {
-                            color: vec3.fromValues(.9, .9, .9),  // red, green, blue
+                            color: vec3.fromValues(.2, .2, .2),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
-                            shininess: 12
+                            shininess: 32
                         },
                         texture: {
-                            url: "images/butterfly.jpg",
+                            url: "images/Checkered.jpg",
                             scale: vec2.fromValues(1.0, 1.0)
                         },
                         center: vec3.fromValues(2.0, 1.0, -9.0), // x, y, z
@@ -93,11 +93,12 @@ function init() {
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
                         },
                         {
-                            position: vec3.fromValues(-2.0, 1.5, -2.5),
+                            position: vec3.fromValues(-3.0, 0.0, 12.5),
                             color: vec3.fromValues(.8, 1.0, 1.0)
                         },
                         {
-                            position: vec3.fromValues(-2.0, 2.5, -2.5),
+                            position: vec3.fromValues(-2.0, 2.5, 3
+                                ),
                             color: vec3.fromValues(.7, 1.0, 1.0)
                         }
                         // ,

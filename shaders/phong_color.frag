@@ -21,11 +21,14 @@ void main() {
 
     vec3 N = frag_normal;
     vec3 V = normalize(camera_position - frag_pos);
+    
     vec3 ambient = light_ambient*material_color;
-    for (int i = 0; i < 10; i++) {
+
+
+    for (int i = 0; i < light_position.length(); i++) {
 
         vec3 L = normalize(light_position[i] - frag_pos);
-        vec3 R = normalize(-reflect(L, N));
+        vec3 R = normalize(reflect(-L, N));
 
         
         diffuse += light_color[i]*material_color* max(0.0, dot(N, L));
@@ -33,5 +36,15 @@ void main() {
     }
 
     vec3 finalColor = ambient + diffuse + specular;
+
+    if (finalColor.x>1.0) {
+        finalColor = vec3(1.0, finalColor.y, finalColor.z);
+    } if(finalColor.y>1.0) {
+        finalColor = vec3(finalColor.x, 1.0, finalColor.z);
+    } if (finalColor.z>1.0) {
+        finalColor = vec3(finalColor.x, finalColor.y, 1.0);
+    }
+
+
     FragColor = vec4(finalColor, 1.0);
 }

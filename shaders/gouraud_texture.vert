@@ -26,12 +26,13 @@ void main() {
     specular = vec3(0.0, 0.0, 0.0);
     gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
     frag_texcoord = vertex_texcoord * texture_scale * vec2(1,-1);
-    vec3 N = normalize(vertex_normal);
-    vec3 V = normalize(camera_position - vertex_position);
+    vec3 N = normalize(transpose(inverse(mat3(model_matrix)))* vertex_normal);
+    vec3 POS = vec3(model_matrix * vec4(vertex_position, 1.0));
+    vec3 V = normalize(camera_position - POS);
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < light_position.length(); i++) {
         vec3 L = normalize(light_position[i] - vertex_position);
-        vec3 R = normalize(-(reflect(L, N)));
+        vec3 R = normalize((reflect(-L, N)));
 
         vec3 D = ((light_color[i])* max(0.0, dot(N, L)));
         vec3 S = (light_color[i] * pow(max(0.0, dot(R, V)), material_shininess));
