@@ -31,11 +31,11 @@ void main() {
     vec3 V = normalize(camera_position - POS);
 
     for (int i = 0; i < light_position.length(); i++) {
-        vec3 L = normalize(light_position[i] - vertex_position);
+        vec3 L = normalize(light_position[i] - POS);
         vec3 R = normalize((reflect(-L, N)));
 
         vec3 D = ((light_color[i])* max(0.0, dot(N, L)));
-        vec3 S = (light_color[i] * pow(max(0.0, dot(R, V)), material_shininess));
+        vec3 S = light_color[i] * pow(max(0.0, dot(R, V)), material_shininess);
         diffuse += D;
         specular += S;
 

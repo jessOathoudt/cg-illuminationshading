@@ -89,15 +89,15 @@ function init() {
                     ambient: glMatrix.vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
                     point_lights: [
                         {
-                            position: vec3.fromValues(1.5, 3.0, 3.0),  // x, y, z
+                            position: vec3.fromValues(1.5, 4.4, 13.0),  // x, y, z
                             color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
                         },
                         {
-                            position: vec3.fromValues(2.0, 2.5, -2.5),
+                            position: vec3.fromValues(1.3, 12.1, -0.8),
                             color: vec3.fromValues(.8, 1.0, 1.0)
                         },
                         {
-                            position: vec3.fromValues(-2.0, 2.5, 3
+                            position: vec3.fromValues(-9.7, 2.5, -12.0
                                 ),
                             color: vec3.fromValues(.7, 1.0, 1.0)
                         }

@@ -25,10 +25,11 @@ void main() {
 
     gl_Position = projection_matrix * view_matrix * model_matrix * vec4(vertex_position, 1.0);
     vec3 N = normalize(transpose(inverse(mat3(model_matrix)))* vertex_normal);
-    vec3 V = normalize(camera_position - vec3(model_matrix * vec4(vertex_position, 1.0)));
+    vec3 POS = vec3(model_matrix * vec4(vertex_position, 1.0));
+    vec3 V = normalize(camera_position - POS);
 
-    for (int i = 0; i < 10; i++) {
-        vec3 L = normalize(light_position[i] - vertex_position);
+    for (int i = 0; i < light_position.length(); i++) {
+        vec3 L = normalize(light_position[i] - POS);
         vec3 R = normalize(reflect(-L, N));
 
         vec3 D = light_color[i] * max(0.0, dot(N, L));
