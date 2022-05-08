@@ -1,0 +1,83 @@
+{
+    "background": [0.0,0.0, 0.0],
+    "camera": {
+        "position": [0.0, 12.5, 1.0],
+        "target": [0.0, 0.0, 0.0],
+        "up": [-1.0, 0.0, 0.0]
+    },
+    "models": [
+        {
+            "type": "plane",
+            "shader": "color",
+            "material": {
+                "color": [0.0, 1.0, 1.0],
+                "specular": [1.0, 1.0, 1.0],
+                "shininess": 12
+            },
+            "center": [0.0, 0.0, 0.0],
+            "size": [5.0, 1.0, 5.0]
+        },
+        {
+            "type": "cube",
+            "shader": "texture",
+            "material": {
+                "color": [1.0, 0.0,1.0],
+                "specular": [1.0, 0.0, 0.0],
+                "shininess": 5
+            },
+            "texture": {
+                "url": "images/butterfly.jpg",
+                "scale": [4, 4]
+            },
+            "center": [0.0, 4.5, 1.5],
+            "size": [2.0, 2.0, 2.0]
+        },
+        {
+            "type": "sphere",
+            "shader": "texture",
+            "material": {
+                "color": [0.5, 0.5, 0.5],
+                "specular": [1.0, 1.0, 1.0],
+                "shininess": 12
+            },
+            "texture": {
+                "url": "images/World_Map.jpg",
+                "scale": [1, 1]
+            },
+            "center": [0.0, 1.0, -3.0],
+            "size": [2.0, 2.0, 2.0]
+        },
+        {
+            "type": "custom",
+            "shader": "texture",
+            "material": {
+                "color": [1.0, 1.0, 0.0],
+                "specular": [1.0, 1.0, 1.0],
+                "shininess": 6
+            },
+            "texture": {
+                "url": "images/Checkered.jpg",
+                "scale": [1, 1]
+            },
+            "center": [2.0, 1.5, -1.0],
+            "size": [1.0, 2.0, 1.0]
+        }
+    ],
+    "light": {
+        "ambient": [0.15, 0.15, 0.15],
+        "point_lights": [
+            {
+                "position": [6.0, 12.0, 2.3],
+                "color": [1.0, 0.0, 1.0]
+            },
+            {
+                "position": [-1.0, 3.5, -2.5],
+                "color": [0.0, 0.0, 1.0]
+            },
+            {
+                "position": [0.0, 1.4, 0.0],
+                "color": [1.0, 1.0, 1.0]
+            }
+        ]
+    }
+}

@@ -16,13 +16,13 @@ function init() {
                         type: 'plane',
                         shader: 'texture',
                         material: {
-                            color: vec3.fromValues(0.7, 0.5, 0.5),  // red, green, blue
+                            color: vec3.fromValues(1.0, 1.0, 1.0),  // red, green, blue
                             specular: vec3.fromValues(0.0, 0.0, 0.0),  // red, green, blue
                             shininess: 1
                         },
                         texture: {
                             url: "images/Checkered.jpg",
-                            scale: vec2.fromValues(1.0, 1.0)
+                            scale: vec2.fromValues(4.0, 4.0)
                         },
                         center: vec3.fromValues(0.0, 0.0, -8.0),  // x, y, z
                         size: vec3.fromValues(8.0, 1.0, 8.0),  // width, 1.0, depth
@@ -34,7 +34,7 @@ function init() {
                         type: 'custom',
                         shader: 'color',
                         material: {
-                            color: vec3.fromValues(.2, .2, .2),  // red, green, blue
+                            color: vec3.fromValues(1.0, 0.0, 0.0),  // red, green, blue
                             specular: vec3.fromValues(0.5, 0.5, 0.5),  // red, green, blue
                             shininess: 32
                         },
