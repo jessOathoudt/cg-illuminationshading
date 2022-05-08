@@ -89,51 +89,61 @@ function init() {
                     ambient: glMatrix.vec3.fromValues(0.2, 0.2, 0.2),  // red, green, blue
                     point_lights: [
                         {
-                            position: vec3.fromValues(1.5, 4.4, 13.0),  // x, y, z
-                            color: vec3.fromValues(1.0, 1.0, 0.8)  // red, green, blue
+                            position: vec3.fromValues(1.5, 4.4, 3.0),  // x, y, z
+                            color: vec3.fromValues(1.0, 0.0, 0.0)  // red, green, blue
                         },
                         {
                             position: vec3.fromValues(1.3, 12.1, -0.8),
-                            color: vec3.fromValues(.8, 1.0, 1.0)
+                            color: vec3.fromValues(0.0, 1.0, 0.0)
                         },
                         {
-                            position: vec3.fromValues(-9.7, 2.5, -12.0
+                            position: vec3.fromValues(-9.7, 2.5, 2.0
+                                ),
+                            color: vec3.fromValues(0.0, 0.0, 1.0)
+                        }
+                         ,/*
+                         {
+                            position: vec3.fromValues(9.7, 3.5, 12.0
                                 ),
                             color: vec3.fromValues(.7, 1.0, 1.0)
                         }
-                        // ,
-                        // {
-                        //     "position": [-2.0, 3.5, -2.5],
-                        //     "color": [.6, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 4.5, -2.5],
-                        //     "color": [.5, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 5.5, -2.5],
-                        //     "color": [.4, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 6.5, -2.5],
-                        //     "color": [.3, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 7.5, -2.5],
-                        //     "color": [.2, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 9.5, -2.5],
-                        //     "color": [.1, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 9.5, -2.5],
-                        //     "color": [0, 1.0, 1.0]
-                        // },
-                        // {
-                        //     "position": [-2.0, 10.5, -2.5],
-                        //     "color": [1.0, 1.0, 1.0]
-                        // }
+                         ,
+                         {
+                            position: vec3.fromValues(.7, 2.5, 2.0
+                                ),
+                            color: vec3.fromValues(.7, 1.0, 1.0)
+                        }
+                         ,
+                         {
+                            position: vec3.fromValues(-5.7, 2.0, 1.0
+                                ),
+                            color: vec3.fromValues(.7, 1.0, 1.0)
+                        }
+                         ,
+                         {
+                            position: vec3.fromValues(12.7, 12.5, 12.0
+                                ),
+                            color: vec3.fromValues(.7, 1.0, 1.0)
+                        }
+                         ,
+                         {
+                            position: vec3.fromValues(-4.7, 2.0, 3.0
+                                ),
+                            color: vec3.fromValues(.7, 1.0, 1.0)
+                        }
+                         ,
+                         {
+                            position: vec3.fromValues(6.0, 6.0, 6.0
+                                ),
+                            color: vec3.fromValues(.7, 1.0, 1.0)
+                        }
+                         ,
+                         {
+                            position: vec3.fromValues(-8.7, 2.5, 2.0
+                                ),
+                            color: vec3.fromValues(.7, 1.0, 1.0)
+                        }
+                         ,*/
                     ]
                 }
                 
