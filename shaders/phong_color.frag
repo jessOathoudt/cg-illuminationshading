@@ -21,7 +21,7 @@ void main() {
 
     vec3 N = frag_normal;
     vec3 V = normalize(camera_position - frag_pos);
-    
+
     vec3 ambient = light_ambient*material_color;
 
 

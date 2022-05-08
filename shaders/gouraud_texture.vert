@@ -36,9 +36,9 @@ void main() {
 
         vec3 D = ((light_color[i])* max(0.0, dot(N, L)));
         vec3 S = (light_color[i] * pow(max(0.0, dot(R, V)), material_shininess));
-
         diffuse += D;
         specular += S;
+
     }
     ambient = light_ambient;
     
